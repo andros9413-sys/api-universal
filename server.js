@@ -48,6 +48,19 @@ app.get("/", (req, res) => {
   });
 });
 
+
+// ===============================
+// ❤️ Health Check (público)
+// ===============================
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    service: "api-universal",
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // ===============================
 // 🟢 Endpoint principal (privado)
 // ===============================
